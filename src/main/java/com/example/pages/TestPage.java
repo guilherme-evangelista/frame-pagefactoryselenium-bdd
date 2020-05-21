@@ -1,6 +1,5 @@
 package com.example.pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -24,8 +23,8 @@ public class TestPage extends BasePage{
     private WebElement msgResultadoDePesquisa;
 
     public boolean aguardarPaginaInicialCarregar(){
-        super.tirarPrint(imgGoogle);
-        return super.verificaElementoPresenteTela(imgGoogle);
+        super.tirarPrint();
+        return super.verificaElementoPresenteTela(btnPesquisar);
     }
 
     public void preencherCampoDePesquisa(String busca){

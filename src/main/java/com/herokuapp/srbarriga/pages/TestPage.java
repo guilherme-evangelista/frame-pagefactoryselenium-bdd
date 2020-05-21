@@ -1,5 +1,6 @@
 package com.herokuapp.srbarriga.pages;
 
+import com.herokuapp.srbarriga.utils.XpathUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
