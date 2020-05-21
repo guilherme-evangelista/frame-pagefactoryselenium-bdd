@@ -13,18 +13,18 @@ public class TestPage extends BasePage{
     @FindBy (xpath = "//input[@name='q']")
     private WebElement cmpPesquisa;
 
-    @FindBy (xpath = "//img[@height='154']")
-    private WebElement imgGoogle;
+    @FindBy (xpath = "//input[@value='Estou com Sote' and parent::center[not(preceding-sibling::style)]]")
+    private WebElement btnEstouComSorte;
 
-    @FindBy (xpath = "//input[@value='Pesquisa Google' and ancestor::div[@class='FPdoLc tfB0Bf']]")
-    private WebElement btnPesquisar;
+    @FindBy (xpath = "//input[@value='Pesquisa Google' and parent::center[not(preceding-sibling::style)]]")
+    private WebElement btnPesquisarGoogle;
 
-    @FindBy (xpath = "//div[@id='result-stats']")
+    @FindBy (xpath = "//div[@id='search']")
     private WebElement msgResultadoDePesquisa;
 
     public boolean aguardarPaginaInicialCarregar(){
-        super.tirarPrint();
-        return super.verificaElementoPresenteTela(btnPesquisar);
+        super.tirarPrint(cmpPesquisa, btnEstouComSorte, btnPesquisarGoogle);
+        return super.verificaElementoPresenteTela(cmpPesquisa);
     }
 
     public void preencherCampoDePesquisa(String busca){
@@ -32,12 +32,12 @@ public class TestPage extends BasePage{
     }
 
     public void clicarBotaoPesquisar(){
-        super.tirarPrint(cmpPesquisa, btnPesquisar);
-        super.clicarElemento(btnPesquisar);
+        super.tirarPrint(cmpPesquisa, btnPesquisarGoogle);
+        super.clicarElemento(btnPesquisarGoogle);
     }
 
     public boolean validarResultadoDePesquisa(){
-        super.tirarPrint(msgResultadoDePesquisa);
+        super.tirarPrint();
         return super.verificaElementoPresenteTela(msgResultadoDePesquisa);
     }
 }
