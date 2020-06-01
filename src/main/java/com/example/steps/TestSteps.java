@@ -10,11 +10,7 @@ import org.junit.Assert;
 
 public class TestSteps {
 
-    protected TestPage testPage;
-
-    public TestSteps(){
-        this.testPage = new TestPage();
-    }
+    protected TestPage testPage = new TestPage();
 
     @Dado("que eu acesso o site")
     public void queEuAcessoOSite() {
@@ -27,8 +23,8 @@ public class TestSteps {
         testPage.clicarBotaoPesquisar();
     }
 
-    @Então("os resultados são exibidos")
-    public void osResultadosSãoExibidos() {
+    @Então("os resultados sao exibidos")
+    public void osResultadosSaoExibidos() {
         Assert.assertTrue(testPage.validarResultadoDePesquisa());
     }
 }

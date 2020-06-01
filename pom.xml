@@ -27,8 +27,6 @@
         <fakker.version>1.0.2</fakker.version>
         <log4j.version>1.2.17</log4j.version>
         <reportbuilder.version>1.0.3</reportbuilder.version>
-        <testng.version>7.1.0</testng.version>
-        <testngcucumber.version>1.2.6</testngcucumber.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -77,22 +75,12 @@
             <version>${reportbuilder.version}</version>
         </dependency>
 
-
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-testng</artifactId>
-            <version>${cucumber.version}</version>
-        </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>compile</scope>
         </dependency>
-
-
     </dependencies>
 
 
