@@ -2,7 +2,6 @@ package com.example.pages;
 
 import com.example.core.DSL;
 import com.example.core.DriverFactory;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
