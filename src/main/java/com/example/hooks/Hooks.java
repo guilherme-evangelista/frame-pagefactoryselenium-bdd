@@ -1,7 +1,7 @@
 package com.example.hooks;
 
 import com.example.core.DriverFactory;
-import com.example.core.utils.ScenarioRepository;
+import com.example.core.screenshot.ScenarioRepository;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;

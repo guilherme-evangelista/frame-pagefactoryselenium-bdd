@@ -1,7 +1,7 @@
 package com.example.core;
 
 import com.example.core.utils.PropertiesManager;
-import com.example.core.utils.ScenarioRepository;
+import com.example.core.screenshot.ScenarioRepository;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;

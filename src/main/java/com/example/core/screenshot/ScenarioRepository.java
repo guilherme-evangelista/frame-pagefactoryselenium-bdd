@@ -1,4 +1,4 @@
-package com.example.core.utils;
+package com.example.core.screenshot;
 
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
