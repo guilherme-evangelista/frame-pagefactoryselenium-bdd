@@ -1,20 +1,11 @@
 package com.example.pages;
 
-import com.example.core.DSL;
-import com.example.core.DriverFactory;
+import com.example.core.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class TestPage{
+public class TestPage extends BasePage {
     
-    private final DSL dsl;
-
-    public TestPage(){
-        dsl = new DSL();
-        PageFactory.initElements(DriverFactory.getDriver(), this);
-    }
-
     @FindBy (xpath = "//input[@name='q']")
     private WebElement cmpPesquisa;
 
@@ -28,21 +19,21 @@ public class TestPage{
     private WebElement msgResultadoDePesquisa;
 
     public boolean aguardarPaginaInicialCarregar(){
-        dsl.tirarPrint(cmpPesquisa, btnEstouComSorte, btnPesquisarGoogle);
-        return dsl.verificaElementoPresenteTela(cmpPesquisa);
+        super.tirarPrint(cmpPesquisa, btnEstouComSorte, btnPesquisarGoogle);
+        return super.verificaElementoPresenteTela(cmpPesquisa);
     }
 
     public void preencherCampoDePesquisa(String busca){
-        dsl.digitarTexto(cmpPesquisa, busca);
+        super.digitarTexto(cmpPesquisa, busca);
     }
 
     public void clicarBotaoPesquisar(){
-        dsl.tirarPrint(cmpPesquisa, btnPesquisarGoogle);
-        dsl.clicarElemento(btnPesquisarGoogle);
+        super.tirarPrint(cmpPesquisa, btnPesquisarGoogle);
+        super.clicarElemento(btnPesquisarGoogle);
     }
 
     public boolean validarResultadoDePesquisa(){
-        dsl.tirarPrint();
-        return dsl.verificaElementoPresenteTela(msgResultadoDePesquisa);
+        super.tirarPrint();
+        return super.verificaElementoPresenteTela(msgResultadoDePesquisa);
     }
 }

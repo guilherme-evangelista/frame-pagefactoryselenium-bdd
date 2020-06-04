@@ -5,6 +5,7 @@ import com.example.core.screenshot.ScenarioRepository;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,9 +14,13 @@ import java.util.List;
 
 import static com.example.core.DriverFactory.getDriver;
 
-public class DSL {
+public class BasePage {
 
-    private static final Logger log = Logger.getLogger(DSL.class.getName());
+    public BasePage(){
+        PageFactory.initElements(DriverFactory.getDriver(), this);
+    }
+
+    private static final Logger log = Logger.getLogger(BasePage.class.getName());
     private final int timeout = Integer.parseInt(PropertiesManager.getProp("timeout"));
 
     public void esperarElementoFicarClicavel(WebElement webElement) {
