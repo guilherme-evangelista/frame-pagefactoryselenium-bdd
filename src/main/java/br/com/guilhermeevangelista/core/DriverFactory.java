@@ -1,8 +1,8 @@
-package com.example.core;
+package br.com.guilhermeevangelista.core;
 
-import com.example.core.utils.PropertiesManager;
-import com.example.core.driver.Web;
-import com.example.core.driver.WebApplication;
+import br.com.guilhermeevangelista.core.driver.Web;
+import br.com.guilhermeevangelista.core.utils.PropertiesManager;
+import br.com.guilhermeevangelista.core.driver.WebApplication;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,13 +13,13 @@ public class DriverFactory {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            createDriver(Web.CHROME);
+            createDriver();
         }
         return driver;
     }
 
-    private static void createDriver(WebApplication webApplication) {
-        driver = webApplication.getDriver();
+    private static void createDriver() {
+        driver = ((WebApplication) Web.CHROME).getDriver();
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, 10);
         driver.get(PropertiesManager.getProp("urlAPP"));

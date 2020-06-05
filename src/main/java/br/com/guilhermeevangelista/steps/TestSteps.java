@@ -1,6 +1,6 @@
-package com.example.steps;
+package br.com.guilhermeevangelista.steps;
 
-import com.example.pages.TestPage;
+import br.com.guilhermeevangelista.pages.TestPage;
 
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;

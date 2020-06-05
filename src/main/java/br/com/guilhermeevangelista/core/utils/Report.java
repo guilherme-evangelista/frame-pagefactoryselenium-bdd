@@ -1,4 +1,4 @@
-package com.example.core.utils;
+package br.com.guilhermeevangelista.core.utils;
 
 import com.rajatthareja.reportbuilder.Color;
 import com.rajatthareja.reportbuilder.ReportBuilder;

@@ -1,4 +1,4 @@
-package com.example.core.driver;
+package br.com.guilhermeevangelista.core.driver;
 
 import org.openqa.selenium.WebDriver;
 

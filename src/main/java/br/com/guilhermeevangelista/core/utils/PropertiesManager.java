@@ -1,4 +1,4 @@
-package com.example.core.utils;
+package br.com.guilhermeevangelista.core.utils;
 
 import java.io.File;
 import java.io.FileInputStream;

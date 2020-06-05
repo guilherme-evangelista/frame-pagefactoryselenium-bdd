@@ -1,6 +1,6 @@
-package com.example.pages;
+package br.com.guilhermeevangelista.pages;
 
-import com.example.core.BasePage;
+import br.com.guilhermeevangelista.core.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 

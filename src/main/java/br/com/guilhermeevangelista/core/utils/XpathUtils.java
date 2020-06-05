@@ -1,6 +1,6 @@
-package com.example.core.utils;
+package br.com.guilhermeevangelista.core.utils;
 
-import com.example.core.BasePage;
+import br.com.guilhermeevangelista.core.BasePage;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;

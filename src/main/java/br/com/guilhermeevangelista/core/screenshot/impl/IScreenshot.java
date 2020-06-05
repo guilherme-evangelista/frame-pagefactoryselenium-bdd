@@ -1,4 +1,4 @@
-package com.example.core.screenshot.impl;
+package br.com.guilhermeevangelista.core.screenshot.impl;
 
 import com.google.common.base.Function;
 

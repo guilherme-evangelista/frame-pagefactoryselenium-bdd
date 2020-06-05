@@ -1,9 +1,8 @@
-package com.example.core.screenshot;
+package br.com.guilhermeevangelista.core.screenshot;
 
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import com.example.core.screenshot.Screenshot;
 
 import java.util.HashMap;
 import java.util.Map;

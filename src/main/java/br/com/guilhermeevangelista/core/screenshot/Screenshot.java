@@ -1,9 +1,9 @@
-package com.example.core.screenshot;
+package br.com.guilhermeevangelista.core.screenshot;
 
+import br.com.guilhermeevangelista.core.screenshot.impl.RunScreenshot;
+import br.com.guilhermeevangelista.core.screenshot.impl.UntilScreenShot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import com.example.core.screenshot.impl.RunScreenshot;
-import com.example.core.screenshot.impl.UntilScreenShot;
 
 
 public class Screenshot {

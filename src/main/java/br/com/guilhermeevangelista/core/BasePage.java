@@ -1,7 +1,7 @@
-package com.example.core;
+package br.com.guilhermeevangelista.core;
 
-import com.example.core.utils.PropertiesManager;
-import com.example.core.screenshot.ScenarioRepository;
+import br.com.guilhermeevangelista.core.utils.PropertiesManager;
+import br.com.guilhermeevangelista.core.screenshot.ScenarioRepository;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -11,8 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
-
-import static com.example.core.DriverFactory.getDriver;
 
 public class BasePage {
 
@@ -24,17 +22,17 @@ public class BasePage {
     private final int timeout = Integer.parseInt(PropertiesManager.getProp("timeout"));
 
     public void esperarElementoFicarClicavel(WebElement webElement) {
-        new WebDriverWait(getDriver(), timeout)
+        new WebDriverWait(DriverFactory.getDriver(), timeout)
                 .until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
     public void esperarElementoFicarVisivel(WebElement webElement) {
-        new WebDriverWait(getDriver(), timeout)
+        new WebDriverWait(DriverFactory.getDriver(), timeout)
                 .until(ExpectedConditions.visibilityOf(webElement));
     }
 
     public void esperarElementoSairDaTela(WebElement webElement) {
-        new WebDriverWait(getDriver(), timeout)
+        new WebDriverWait(DriverFactory.getDriver(), timeout)
                 .until(ExpectedConditions.invisibilityOf(webElement));
     }
 
@@ -57,26 +55,26 @@ public class BasePage {
             esperarElementoFicarClicavel(webElement);
             webElement.click();
         } catch (ElementNotInteractableException e) {
-            Actions actions = new Actions(getDriver());
+            Actions actions = new Actions(DriverFactory.getDriver());
             actions.moveToElement(webElement).click().build().perform();
         } catch (WebDriverException e) {
-            JavascriptExecutor js = (JavascriptExecutor) getDriver();
+            JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getDriver();
             js.executeScript("arguments[0].click();", webElement);
         } catch (Exception e) {
-            ScenarioRepository.screenShot(getDriver());
+            ScenarioRepository.screenShot(DriverFactory.getDriver());
             log.error("Falha ao clicar no elemento :" + webElement);
         }
     }
 
     public void tirarPrint(){
         waitProcessPage();
-        ScenarioRepository.screenShot(getDriver());
+        ScenarioRepository.screenShot(DriverFactory.getDriver());
     }
 
     public void tirarPrint(WebElement... webElements){
         waitProcessPage();
 
-        ScenarioRepository.screenShot(getDriver(), webElements);
+        ScenarioRepository.screenShot(DriverFactory.getDriver(), webElements);
     }
 
     public String recuperarTexto(WebElement webElement) {
@@ -86,7 +84,7 @@ public class BasePage {
             esperarElementoFicarVisivel(webElement);
             valor = webElement.getText();
         } catch (Exception e) {
-            ScenarioRepository.screenShot(getDriver());
+            ScenarioRepository.screenShot(DriverFactory.getDriver());
             log.error("Falha ao clicar no elemento :" + webElement);
         }
         return valor;
@@ -107,7 +105,7 @@ public class BasePage {
             esperarElementoFicarVisivel(webElement);
             webElement.sendKeys(texto);
         } catch (Exception e) {
-            ScenarioRepository.screenShot(getDriver());
+            ScenarioRepository.screenShot(DriverFactory.getDriver());
             log.error("Falha ao clicar no elemento :" + webElement);
         }
     }
@@ -119,14 +117,14 @@ public class BasePage {
             esperarElementoFicarClicavel(webElement);
             valor = webElement.isDisplayed();
         } catch (Exception e) {
-            ScenarioRepository.screenShot(getDriver());
+            ScenarioRepository.screenShot(DriverFactory.getDriver());
             log.error("Falha ao clicar no elemento :" + webElement);
         }
         return valor;
     }
 
     private void waitProcessPage(){
-        WebDriverWait webDriverWait = new WebDriverWait(getDriver(), timeout);
+        WebDriverWait webDriverWait = new WebDriverWait(DriverFactory.getDriver(), timeout);
         webDriverWait.until(waitProcess());
     }
 

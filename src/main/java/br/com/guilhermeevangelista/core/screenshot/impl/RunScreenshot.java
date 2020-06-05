@@ -1,7 +1,7 @@
-package com.example.core.screenshot.impl;
+package br.com.guilhermeevangelista.core.screenshot.impl;
 
+import br.com.guilhermeevangelista.core.screenshot.exceptions.ScreenshotException;
 import com.google.common.base.Function;
-import com.example.core.screenshot.exceptions.ScreenshotException;
 
 
 public class RunScreenshot {
