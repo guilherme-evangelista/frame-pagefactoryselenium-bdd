@@ -1,8 +1,8 @@
-package br.com.guilhermeevangelista.core;
+package br.com.guilhermeevangelista.selenium.core;
 
-import br.com.guilhermeevangelista.core.driver.Web;
-import br.com.guilhermeevangelista.core.utils.PropertiesManager;
-import br.com.guilhermeevangelista.core.driver.WebApplication;
+import br.com.guilhermeevangelista.selenium.core.driver.Web;
+import br.com.guilhermeevangelista.selenium.core.utils.PropertiesManager;
+import br.com.guilhermeevangelista.selenium.core.driver.WebApplication;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -29,4 +29,5 @@ public class DriverFactory {
         driver.quit();
         driver = null;
     }
+
 }

@@ -1,4 +1,4 @@
-package br.com.guilhermeevangelista.core.screenshot.impl;
+package br.com.guilhermeevangelista.selenium.core.screenshot.impl;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;

@@ -1,4 +1,4 @@
-package br.com.guilhermeevangelista.core.driver;
+package br.com.guilhermeevangelista.selenium.core.driver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

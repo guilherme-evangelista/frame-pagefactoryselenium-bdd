@@ -1,6 +1,6 @@
-package br.com.guilhermeevangelista.core.screenshot.impl;
+package br.com.guilhermeevangelista.selenium.core.screenshot.impl;
 
-import br.com.guilhermeevangelista.core.screenshot.exceptions.ScreenshotException;
+import br.com.guilhermeevangelista.selenium.core.screenshot.exceptions.ScreenshotException;
 import com.google.common.base.Function;
 
 

@@ -1,7 +1,7 @@
-package br.com.guilhermeevangelista.core;
+package br.com.guilhermeevangelista.selenium.core;
 
-import br.com.guilhermeevangelista.core.utils.PropertiesManager;
-import br.com.guilhermeevangelista.core.screenshot.ScenarioRepository;
+import br.com.guilhermeevangelista.selenium.core.utils.PropertiesManager;
+import br.com.guilhermeevangelista.selenium.core.screenshot.ScenarioRepository;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -27,12 +27,17 @@ public class BasePage {
     }
 
     public void esperarElementoFicarVisivel(WebElement webElement) {
+        new WebDriverWait(DriverFactory.getDriver(), this.timeout)
+                .until(ExpectedConditions.visibilityOf(webElement));
+    }
+
+    public void esperarElementoFicarVisivel(WebElement webElement, int timeout) {
         new WebDriverWait(DriverFactory.getDriver(), timeout)
                 .until(ExpectedConditions.visibilityOf(webElement));
     }
 
     public void esperarElementoSairDaTela(WebElement webElement) {
-        new WebDriverWait(DriverFactory.getDriver(), timeout)
+        new WebDriverWait(DriverFactory.getDriver(), this.timeout)
                 .until(ExpectedConditions.invisibilityOf(webElement));
     }
 

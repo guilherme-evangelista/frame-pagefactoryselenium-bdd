@@ -1,4 +1,4 @@
-package br.com.guilhermeevangelista.core.screenshot.exceptions;
+package br.com.guilhermeevangelista.selenium.core.screenshot.exceptions;
 
 public class ScreenshotException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

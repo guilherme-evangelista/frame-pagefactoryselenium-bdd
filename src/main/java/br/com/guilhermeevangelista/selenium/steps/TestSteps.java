@@ -1,6 +1,6 @@
-package br.com.guilhermeevangelista.steps;
+package br.com.guilhermeevangelista.selenium.steps;
 
-import br.com.guilhermeevangelista.pages.TestPage;
+import br.com.guilhermeevangelista.selenium.pages.TestPage;
 
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
@@ -27,4 +27,5 @@ public class TestSteps {
     public void osResultadosSaoExibidos() {
         Assert.assertTrue(testPage.validarResultadoDePesquisa());
     }
+
 }

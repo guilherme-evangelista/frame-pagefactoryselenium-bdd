@@ -1,4 +1,4 @@
-package br.com.guilhermeevangelista.core.utils;
+package br.com.guilhermeevangelista.selenium.core.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
