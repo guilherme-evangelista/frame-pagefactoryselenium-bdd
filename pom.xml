@@ -18,6 +18,30 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.trivago.rta</groupId>
+                <artifactId>cluecumber-report-plugin</artifactId>
+                <version>2.5.0</version>
+                <executions>
+                    <execution>
+                        <id>report</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>reporting</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <customPageTitle>Frame RestAssured</customPageTitle>
+                    <sourceJsonReportDirectory>${project.build.directory}/cucumber-report</sourceJsonReportDirectory>
+                    <generatedHtmlReportDirectory>${project.build.directory}/generated-report</generatedHtmlReportDirectory>
+                    <customParameters>
+                        <FrameWork>Selenium Web Bdd</FrameWork>
+                        <Uri_Api>http://seubarriga.wcaquino.me</Uri_Api>
+                        <!--                        <_Text>This is a long text that is displayed without the key. This can be used to display longer texts in the report!</_Text>-->
+                    </customParameters>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -80,6 +104,13 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>compile</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.trivago.rta/cluecumber-report-plugin -->
+        <dependency>
+            <groupId>com.trivago.rta</groupId>
+            <artifactId>cluecumber-report-plugin</artifactId>
+            <version>2.5.0</version>
         </dependency>
     </dependencies>
 

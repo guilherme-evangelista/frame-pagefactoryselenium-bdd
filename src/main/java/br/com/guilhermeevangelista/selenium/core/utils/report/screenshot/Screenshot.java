@@ -1,7 +1,7 @@
-package br.com.guilhermeevangelista.selenium.core.screenshot;
+package br.com.guilhermeevangelista.selenium.core.utils.report.screenshot;
 
-import br.com.guilhermeevangelista.selenium.core.screenshot.impl.RunScreenshot;
-import br.com.guilhermeevangelista.selenium.core.screenshot.impl.UntilScreenShot;
+import br.com.guilhermeevangelista.selenium.core.utils.report.screenshot.impl.RunScreenshot;
+import br.com.guilhermeevangelista.selenium.core.utils.report.screenshot.impl.UntilScreenShot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 

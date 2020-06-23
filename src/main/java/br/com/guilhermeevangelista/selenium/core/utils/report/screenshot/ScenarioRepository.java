@@ -1,4 +1,4 @@
-package br.com.guilhermeevangelista.selenium.core.screenshot;
+package br.com.guilhermeevangelista.selenium.core.utils.report.screenshot;
 
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;

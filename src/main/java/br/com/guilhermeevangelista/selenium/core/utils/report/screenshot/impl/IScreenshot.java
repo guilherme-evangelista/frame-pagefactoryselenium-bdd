@@ -1,4 +1,4 @@
-package br.com.guilhermeevangelista.selenium.core.screenshot.impl;
+package br.com.guilhermeevangelista.selenium.core.utils.report.screenshot.impl;
 
 import com.google.common.base.Function;
 

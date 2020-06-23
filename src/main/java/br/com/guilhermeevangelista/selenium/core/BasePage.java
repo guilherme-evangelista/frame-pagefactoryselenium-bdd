@@ -1,8 +1,11 @@
 package br.com.guilhermeevangelista.selenium.core;
 
+import br.com.guilhermeevangelista.selenium.core.driver.DriverFactory;
 import br.com.guilhermeevangelista.selenium.core.utils.PropertiesManager;
-import br.com.guilhermeevangelista.selenium.core.screenshot.ScenarioRepository;
+import br.com.guilhermeevangelista.selenium.core.utils.report.screenshot.ScenarioRepository;
+
 import org.apache.log4j.Logger;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -124,6 +127,19 @@ public class BasePage {
         } catch (Exception e) {
             ScenarioRepository.screenShot(DriverFactory.getDriver());
             log.error("Falha ao clicar no elemento :" + webElement);
+        }
+        return valor;
+    }
+
+    public boolean verificaTextoPresenteTela(String text) {
+        boolean valor = false;
+        try {
+            waitProcessPage();
+            esperarElementoFicarClicavel(DriverFactory.getDriver().findElement(By.xpath("//*[.='"+text+"']")));
+            valor = DriverFactory.getDriver().findElement(By.xpath("//*[.='"+text+"']")).isDisplayed();
+        } catch (Exception e) {
+            ScenarioRepository.screenShot(DriverFactory.getDriver());
+            log.error("Falha ao clicar no elemento :" + DriverFactory.getDriver().findElement(By.xpath("//*[.='"+text+"']")));
         }
         return valor;
     }

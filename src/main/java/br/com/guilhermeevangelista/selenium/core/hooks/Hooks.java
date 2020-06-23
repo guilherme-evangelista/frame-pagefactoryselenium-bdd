@@ -1,7 +1,7 @@
 package br.com.guilhermeevangelista.selenium.core.hooks;
 
-import br.com.guilhermeevangelista.selenium.core.DriverFactory;
-import br.com.guilhermeevangelista.selenium.core.screenshot.ScenarioRepository;
+import br.com.guilhermeevangelista.selenium.core.driver.DriverFactory;
+import br.com.guilhermeevangelista.selenium.core.utils.report.screenshot.ScenarioRepository;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;

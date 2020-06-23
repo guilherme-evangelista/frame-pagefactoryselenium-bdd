@@ -1,4 +1,4 @@
-package br.com.guilhermeevangelista.selenium.core;
+package br.com.guilhermeevangelista.selenium.core.driver;
 
 import br.com.guilhermeevangelista.selenium.core.driver.Web;
 import br.com.guilhermeevangelista.selenium.core.utils.PropertiesManager;
