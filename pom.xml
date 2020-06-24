@@ -37,7 +37,7 @@
                     <generatedHtmlReportDirectory>${project.build.directory}/generated-report</generatedHtmlReportDirectory>
                     <customParameters>
                         <FrameWork>Selenium Web Bdd</FrameWork>
-                        <Uri_Api>http://seubarriga.wcaquino.me</Uri_Api>
+                        <Url_do_site_testado>http://seubarriga.wcaquino.me</Url_do_site_testado>
                         <!--                        <_Text>This is a long text that is displayed without the key. This can be used to display longer texts in the report!</_Text>-->
                     </customParameters>
                 </configuration>

@@ -5,6 +5,7 @@ import br.com.guilhermeevangelista.selenium.core.utils.report.screenshot.Scenari
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import org.junit.AfterClass;
 
 public class Hooks{
 
@@ -14,9 +15,14 @@ public class Hooks{
     }
 
     @After
-    public static void driverClose(){
-        DriverFactory.killDriver();
+    public void onlyClose(){
+        DriverFactory.closeDriver();
         ScenarioRepository.remove();
+    }
+
+    @AfterClass
+    public static void driverQuit(){
+        DriverFactory.killDriver();
     }
 
 }

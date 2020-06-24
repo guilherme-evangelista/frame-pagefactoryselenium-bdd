@@ -24,6 +24,13 @@ public class LoginSteps {
 
     @Então("valido que a mensagem {string} esta sendo exibida")
     public void validoQueAMensagemEstaSendoExibida(String mensagem) {
-        loginPage.validarMensagemDeCadastro(mensagem);
+        Assert.assertTrue(loginPage.validarMensagemDeCadastro(mensagem));
+    }
+
+    @Quando("realizo login com o usuario {string}")
+    public void realizoLoginComOUsuario(String user) {
+        loginPage.preencherEmail(user);
+        loginPage.preencherSenha(user);
+        loginPage.clicarBotaoEntrar();
     }
 }

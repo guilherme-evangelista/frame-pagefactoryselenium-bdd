@@ -1,6 +1,7 @@
 package br.com.guilhermeevangelista.selenium.pages;
 
 import br.com.guilhermeevangelista.selenium.core.BasePage;
+import br.com.guilhermeevangelista.selenium.pages.enums.Users;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -28,7 +29,17 @@ public class LoginPage extends BasePage {
         tirarPrint(btnNovoUsuario);
     }
 
+    public void preencherEmail(String user){
+        super.digitarTexto(cmpEmail, Users.valueOf(user.toUpperCase()).getEmail());
+    }
+
+    public void preencherSenha(String user){
+        super.digitarTexto(cmpSenha, Users.valueOf(user.toUpperCase()).getSenha());
+    }
+
+
     public void clicarBotaoEntrar(){
+        super.tirarPrint(cmpEmail, cmpSenha, btnEntrar);
         super.clicarElemento(btnEntrar);
     }
 

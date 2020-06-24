@@ -1,10 +1,10 @@
 #language: pt
 #encoding: utf-8
 
-@cadastro
+@cadastro @regressivo
 Funcionalidade: Cadastro
 
-  @positivo
+  @positivo @web
   Cenario: Realizar cadastro com sucesso no sistema
     Dado que eu acesso o site
     Quando clico em novo usuario

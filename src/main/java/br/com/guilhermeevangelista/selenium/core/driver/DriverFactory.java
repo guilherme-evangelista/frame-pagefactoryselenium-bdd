@@ -20,9 +20,15 @@ public class DriverFactory {
 
     private static void createDriver() {
         driver = ((WebApplication) Web.CHROME).getDriver();
+        driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, 10);
         driver.get(PropertiesManager.getProp("urlAPP"));
+    }
+
+    public static void closeDriver(){
+        driver.close();
+        driver = null;
     }
 
     public static void killDriver() {

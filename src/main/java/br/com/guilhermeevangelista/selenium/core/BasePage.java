@@ -24,27 +24,27 @@ public class BasePage {
     private static final Logger log = Logger.getLogger(BasePage.class.getName());
     private final int timeout = Integer.parseInt(PropertiesManager.getProp("timeout"));
 
-    public void esperarElementoFicarClicavel(WebElement webElement) {
+    protected void esperarElementoFicarClicavel(WebElement webElement) {
         new WebDriverWait(DriverFactory.getDriver(), timeout)
                 .until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
-    public void esperarElementoFicarVisivel(WebElement webElement) {
+    protected void esperarElementoFicarVisivel(WebElement webElement) {
         new WebDriverWait(DriverFactory.getDriver(), this.timeout)
                 .until(ExpectedConditions.visibilityOf(webElement));
     }
 
-    public void esperarElementoFicarVisivel(WebElement webElement, int timeout) {
+    protected void esperarElementoFicarVisivel(WebElement webElement, int timeout) {
         new WebDriverWait(DriverFactory.getDriver(), timeout)
                 .until(ExpectedConditions.visibilityOf(webElement));
     }
 
-    public void esperarElementoSairDaTela(WebElement webElement) {
+    protected void esperarElementoSairDaTela(WebElement webElement) {
         new WebDriverWait(DriverFactory.getDriver(), this.timeout)
                 .until(ExpectedConditions.invisibilityOf(webElement));
     }
 
-    public void tentarClicarBotaoLoop(WebElement webElement) throws InterruptedException {
+    protected void tentarClicarBotaoLoop(WebElement webElement) throws InterruptedException {
         int tentativas = 0;
         do {
             try {
@@ -57,7 +57,7 @@ public class BasePage {
         } while (tentativas < 10);
     }
 
-    public void clicarElemento(WebElement webElement) {
+    protected void clicarElemento(WebElement webElement) {
         try {
             waitProcessPage();
             esperarElementoFicarClicavel(webElement);
@@ -85,7 +85,7 @@ public class BasePage {
         ScenarioRepository.screenShot(DriverFactory.getDriver(), webElements);
     }
 
-    public String recuperarTexto(WebElement webElement) {
+    protected String recuperarTexto(WebElement webElement) {
         String valor = null;
         try {
             waitProcessPage();
@@ -98,7 +98,7 @@ public class BasePage {
         return valor;
     }
 
-    public void correrListaEClicarElemento(List<WebElement> listaDeElementos, String campo) {
+    protected void correrListaEClicarElemento(List<WebElement> listaDeElementos, String campo) {
         for (WebElement webElement : listaDeElementos) {
             if (recuperarTexto(webElement).equalsIgnoreCase(campo)) {
                 clicarElemento(webElement);
@@ -107,7 +107,7 @@ public class BasePage {
         }
     }
 
-    public void digitarTexto(WebElement webElement, String texto) {
+    protected void digitarTexto(WebElement webElement, String texto) {
         try {
             waitProcessPage();
             esperarElementoFicarVisivel(webElement);
@@ -118,7 +118,7 @@ public class BasePage {
         }
     }
 
-    public boolean verificaElementoPresenteTela(WebElement webElement) {
+    protected boolean verificaElementoPresenteTela(WebElement webElement) {
         boolean valor = false;
         try {
             waitProcessPage();
@@ -131,7 +131,7 @@ public class BasePage {
         return valor;
     }
 
-    public boolean verificaTextoPresenteTela(String text) {
+    protected boolean verificaTextoPresenteTela(String text) {
         boolean valor = false;
         try {
             waitProcessPage();
