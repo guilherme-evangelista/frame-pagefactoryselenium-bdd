@@ -33,4 +33,16 @@ public class LoginSteps {
         loginPage.preencherSenha(user);
         loginPage.clicarBotaoEntrar();
     }
+
+    @Quando("realizo login com o usuario email invalido")
+    public void realizoLoginComOUsuarioEmailInvalido() {
+        loginPage.preencherEmail("invalido");
+        loginPage.preencherSenha("invalido");
+        loginPage.clicarBotaoEntrar();
+    }
+
+    @Então("valido que nao foi possivel realizar o login")
+    public void validoQueNaoFoiPossivelRealizarOLogin() {
+        Assert.assertTrue(loginPage.validarTelaLogin());
+    }
 }

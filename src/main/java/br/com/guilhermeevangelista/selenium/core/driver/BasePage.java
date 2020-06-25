@@ -1,6 +1,5 @@
-package br.com.guilhermeevangelista.selenium.core;
+package br.com.guilhermeevangelista.selenium.core.driver;
 
-import br.com.guilhermeevangelista.selenium.core.driver.DriverFactory;
 import br.com.guilhermeevangelista.selenium.core.utils.PropertiesManager;
 import br.com.guilhermeevangelista.selenium.core.utils.report.screenshot.ScenarioRepository;
 
@@ -172,4 +171,8 @@ public class BasePage {
         };
     }
 
+    public boolean validarMensagemPopUp(String texto) {
+        System.out.println(DriverFactory.getDriver().switchTo().alert().getText());
+        return DriverFactory.getDriver().switchTo().alert().getText().contains(texto);
+    }
 }

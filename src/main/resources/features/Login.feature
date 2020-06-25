@@ -9,3 +9,10 @@ Funcionalidade: Login
     Dado que eu acesso o site
     Quando realizo login com o usuario "padrao"
     Então valido que a mensagem "Bem vindo, Web Guilherme!" esta sendo exibida
+
+  @negativo @web
+  Cenario: Não realizar login ao passar email invalido
+    Dado que eu acesso o site
+    Quando realizo login com o usuario email invalido
+    Então valido que nao foi possivel realizar o login
+

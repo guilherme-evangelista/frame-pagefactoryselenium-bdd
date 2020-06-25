@@ -51,6 +51,6 @@ public class ScenarioRepository {
 
     public static void addText(String texto) {
         if (texto != null)
-            get().write(texto);
+            get().log(texto);
     }
 }

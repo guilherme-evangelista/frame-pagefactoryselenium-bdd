@@ -1,7 +1,7 @@
 package br.com.guilhermeevangelista.selenium.pages;
 
-import br.com.guilhermeevangelista.selenium.core.BasePage;
-import br.com.guilhermeevangelista.selenium.pages.enums.Users;
+import br.com.guilhermeevangelista.selenium.core.driver.BasePage;
+import br.com.guilhermeevangelista.selenium.core.utils.enums.Users;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -47,4 +47,9 @@ public class LoginPage extends BasePage {
         super.tirarPrint();
         return super.verificaTextoPresenteTela(text);
     }
+
+    public boolean validarTelaLogin(){
+        return super.verificaElementoPresenteTela(btnNovoUsuario);
+    }
+
 }

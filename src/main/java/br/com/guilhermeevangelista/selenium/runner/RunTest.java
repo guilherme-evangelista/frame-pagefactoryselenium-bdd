@@ -7,7 +7,7 @@ import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions( strict = true,
+@CucumberOptions(
         monochrome = true,
         plugin = {"pretty", "json:target/cucumber-report/cucumber.json"},
         features = {"src/main/resources/features"},

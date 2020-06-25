@@ -1,9 +1,10 @@
-package br.com.guilhermeevangelista.selenium.pages.enums;
+package br.com.guilhermeevangelista.selenium.core.utils.enums;
 
 public enum Users {
-    PADRAO("WebGuilherme@TestAutomacao1", "testsenha1");
+    PADRAO("WebGuilherme@TestAutomacao1", "testsenha1"),
+    INVALIDO("WebtGuilhermeTestAutomacao1", "testsenha1");
 
-    String email, senha, nome;
+    String email, senha;
 
     Users(String email, String senha){
         this.email = email;
@@ -17,4 +18,5 @@ public enum Users {
     public String getSenha() {
         return senha;
     }
+
 }

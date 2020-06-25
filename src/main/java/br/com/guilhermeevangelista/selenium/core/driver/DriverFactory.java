@@ -1,8 +1,6 @@
 package br.com.guilhermeevangelista.selenium.core.driver;
 
-import br.com.guilhermeevangelista.selenium.core.driver.Web;
 import br.com.guilhermeevangelista.selenium.core.utils.PropertiesManager;
-import br.com.guilhermeevangelista.selenium.core.driver.WebApplication;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -19,6 +17,7 @@ public class DriverFactory {
     }
 
     private static void createDriver() {
+        if (driver != null) driver.close();
         driver = ((WebApplication) Web.CHROME).getDriver();
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();

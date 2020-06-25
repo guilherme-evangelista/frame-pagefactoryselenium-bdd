@@ -1,6 +1,6 @@
 package br.com.guilhermeevangelista.selenium.pages;
 
-import br.com.guilhermeevangelista.selenium.core.BasePage;
+import br.com.guilhermeevangelista.selenium.core.driver.BasePage;
 
 import br.com.guilhermeevangelista.selenium.core.utils.FakeUtils;
 import org.openqa.selenium.WebElement;
