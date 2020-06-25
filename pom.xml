@@ -21,7 +21,7 @@
             <plugin>
                 <groupId>com.trivago.rta</groupId>
                 <artifactId>cluecumber-report-plugin</artifactId>
-                <version>2.5.0</version>
+                <version>${cluecumber.version}</version>
                 <executions>
                     <execution>
                         <id>report</id>

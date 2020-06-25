@@ -49,6 +49,7 @@ public class LoginPage extends BasePage {
     }
 
     public boolean validarTelaLogin(){
+        super.tirarPrint();
         return super.verificaElementoPresenteTela(btnNovoUsuario);
     }
 
