@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "json:target/cucumber-report/cucumber.json"},
         features = {"src/main/resources/features"},
         glue = {"br/com/guilhermeevangelista/selenium/steps", "br/com/guilhermeevangelista/selenium/core/hooks"},
-        tags = {"@loginusercadastrado"})
+        tags = {"@login"})
 
 public class RunTest{
 

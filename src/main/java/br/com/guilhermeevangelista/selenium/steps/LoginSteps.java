@@ -22,7 +22,6 @@ public class LoginSteps {
         loginPage.clicarBotaoNovoUsuario();
     }
 
-
     @Quando("realizo login com o usuario {string}")
     public void realizoLoginComOUsuario(String user) {
         loginPage.preencherEmail(user);
