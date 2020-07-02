@@ -3,6 +3,7 @@ package br.com.guilhermeevangelista.selenium.pages;
 import br.com.guilhermeevangelista.selenium.core.driver.BasePage;
 
 import br.com.guilhermeevangelista.selenium.core.utils.FakeUtils;
+import br.com.guilhermeevangelista.selenium.core.utils.enums.Users;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -25,11 +26,13 @@ public class CadastroPage extends BasePage {
     }
 
     public void preencherSenha(){
-        super.digitarTexto(cmpSenha, FakeUtils.gerarCpf(false));
+        Users.CADASTRADO.setSenha(FakeUtils.gerarCpf(false));
+        super.digitarTexto(cmpSenha, Users.CADASTRADO.getSenha());
     }
 
     public void preencherEmail(){
-        super.digitarTexto(cmpEmail, FakeUtils.gerarEmail());
+        Users.CADASTRADO.setEmail(FakeUtils.gerarEmail());
+        super.digitarTexto(cmpEmail, Users.CADASTRADO.getEmail());
     }
 
     public void clicarBotaoCadastrar(){

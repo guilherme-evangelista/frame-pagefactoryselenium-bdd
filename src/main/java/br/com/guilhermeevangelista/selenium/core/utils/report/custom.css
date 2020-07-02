@@ -1,0 +1,32 @@
+.navbar, .footer, .card-header {
+    background-color: #ec7000 !important;
+    color: white;
+}
+
+.pb-2.mt-4.mb-2.border-bottom h5, .pb-2.mt-4.mb-2.border-bottom h3 {
+    white-space: pre-wrap;
+    text-align: left;
+    line-height: 1.5;
+}
+
+@media (min-width: 1025px){
+    .navbar-nav {
+        background-image: url(https://logodownload.org/wp-content/uploads/2014/05/itau-logo-1.png);
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        background-position: center left;
+        padding-left: 50px;
+    }
+    ul {
+      position: sticky;
+      top: 0;
+    }
+}
+
+.footer div span {
+  display: none;
+}
+
+.footer div:after {
+  content: 'Todos os direitos reservados. Copyright 2020 Itau Unibanco. Time QA';
+}

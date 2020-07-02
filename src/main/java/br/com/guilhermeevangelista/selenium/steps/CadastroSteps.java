@@ -17,4 +17,5 @@ public class CadastroSteps {
         cadastroPage.preencherSenha();
         cadastroPage.clicarBotaoCadastrar();
     }
+
 }

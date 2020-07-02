@@ -43,11 +43,6 @@ public class LoginPage extends BasePage {
         super.clicarElemento(btnEntrar);
     }
 
-    public boolean validarMensagemDeCadastro(String text){
-        super.tirarPrint();
-        return super.verificaTextoPresenteTela(text);
-    }
-
     public boolean validarTelaLogin(){
         super.tirarPrint();
         return super.verificaElementoPresenteTela(btnNovoUsuario);

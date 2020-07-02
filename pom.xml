@@ -32,6 +32,7 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <customCss>src\main\java\br\com\guilhermeevangelista\selenium\core\utils\report\custom.css</customCss>
                     <customPageTitle>Frame RestAssured</customPageTitle>
                     <sourceJsonReportDirectory>${project.build.directory}/cucumber-report</sourceJsonReportDirectory>
                     <generatedHtmlReportDirectory>${project.build.directory}/generated-report</generatedHtmlReportDirectory>

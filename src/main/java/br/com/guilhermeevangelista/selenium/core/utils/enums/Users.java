@@ -2,7 +2,9 @@ package br.com.guilhermeevangelista.selenium.core.utils.enums;
 
 public enum Users {
     PADRAO("WebGuilherme@TestAutomacao1", "testsenha1"),
-    INVALIDO("WebtGuilhermeTestAutomacao1", "testsenha1");
+    INVALIDO("WebtGuilhermeTestAutomacao1", "testsenha1"),
+
+    CADASTRADO("", "");
 
     String email, senha;
 
@@ -19,4 +21,11 @@ public enum Users {
         return senha;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 }

@@ -10,6 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
@@ -56,21 +57,58 @@ public class BasePage {
         } while (tentativas < 10);
     }
 
-    protected void clicarElemento(WebElement webElement) {
+    protected void selecionarItemLista(WebElement elemento, String texto){
+        Select lista = new Select(elemento);
+        lista.selectByVisibleText(texto);
+    }
+
+    protected void selecionarItemLista(WebElement elemento, int index){
+        Select lista = new Select(elemento);
+        lista.selectByIndex(index);
+    }
+
+    protected void clicarElemento(WebElement elemento) {
         try {
             waitProcessPage();
-            esperarElementoFicarClicavel(webElement);
-            webElement.click();
+            esperarElementoFicarClicavel(elemento);
+            elemento.click();
         } catch (ElementNotInteractableException e) {
             Actions actions = new Actions(DriverFactory.getDriver());
-            actions.moveToElement(webElement).click().build().perform();
+            actions.moveToElement(elemento).click().build().perform();
         } catch (WebDriverException e) {
             JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getDriver();
-            js.executeScript("arguments[0].click();", webElement);
+            js.executeScript("arguments[0].click();", elemento);
         } catch (Exception e) {
             ScenarioRepository.screenShot(DriverFactory.getDriver());
-            log.error("Falha ao clicar no elemento :" + webElement);
+            log.error("Falha ao clicar no elemento :" + elemento);
         }
+    }
+
+    protected void digitarTexto(WebElement elemento, String texto) {
+        try {
+            waitProcessPage();
+            esperarElementoFicarVisivel(elemento);
+            elemento.sendKeys(texto);
+        } catch (WebDriverException e) {
+            JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getDriver();
+            js.executeScript("arguments[0].value='"+texto+"';", elemento);
+        } catch (Exception e) {
+            ScenarioRepository.screenShot(DriverFactory.getDriver());
+            log.error("Falha ao digitar no elemento :" + elemento);
+        }
+    }
+
+    protected String recuperarTexto(WebElement elemento) {
+        String valor = null;
+        try {
+            waitProcessPage();
+            esperarElementoFicarVisivel(elemento);
+            valor = elemento.getText();
+        } catch (Exception e) {
+            ScenarioRepository.screenShot(DriverFactory.getDriver());
+            log.error("Falha ao clicar no elemento :" + elemento);
+        }
+        return valor;
     }
 
     public void tirarPrint(){
@@ -84,36 +122,12 @@ public class BasePage {
         ScenarioRepository.screenShot(DriverFactory.getDriver(), webElements);
     }
 
-    protected String recuperarTexto(WebElement webElement) {
-        String valor = null;
-        try {
-            waitProcessPage();
-            esperarElementoFicarVisivel(webElement);
-            valor = webElement.getText();
-        } catch (Exception e) {
-            ScenarioRepository.screenShot(DriverFactory.getDriver());
-            log.error("Falha ao clicar no elemento :" + webElement);
-        }
-        return valor;
-    }
-
     protected void correrListaEClicarElemento(List<WebElement> listaDeElementos, String campo) {
         for (WebElement webElement : listaDeElementos) {
             if (recuperarTexto(webElement).equalsIgnoreCase(campo)) {
                 clicarElemento(webElement);
                 break;
             }
-        }
-    }
-
-    protected void digitarTexto(WebElement webElement, String texto) {
-        try {
-            waitProcessPage();
-            esperarElementoFicarVisivel(webElement);
-            webElement.sendKeys(texto);
-        } catch (Exception e) {
-            ScenarioRepository.screenShot(DriverFactory.getDriver());
-            log.error("Falha ao clicar no elemento :" + webElement);
         }
     }
 
@@ -130,7 +144,7 @@ public class BasePage {
         return valor;
     }
 
-    protected boolean verificaTextoPresenteTela(String text) {
+    public boolean verificaTextoPresenteTela(String text) {
         boolean valor = false;
         try {
             waitProcessPage();
@@ -141,6 +155,25 @@ public class BasePage {
             log.error("Falha ao clicar no elemento :" + DriverFactory.getDriver().findElement(By.xpath("//*[.='"+text+"']")));
         }
         return valor;
+    }
+
+    public void scrollAteOElemento(WebElement elemento){
+        esperarElementoFicarVisivel(elemento);
+        waitProcessPage();
+        JavascriptExecutor js = (JavascriptExecutor)DriverFactory.getDriver();
+        js.executeScript("arguments[0].scrollIntoView();", elemento);
+    }
+
+    public void scrollAteOFimDaPagina(){
+        waitProcessPage();
+        JavascriptExecutor js = (JavascriptExecutor)DriverFactory.getDriver();
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+
+    public void scrollAteOTopoDaPagina(){
+        waitProcessPage();
+        JavascriptExecutor js = (JavascriptExecutor)DriverFactory.getDriver();
+        js.executeScript("window.scrollTo(0, document.body.scrollTop)");
     }
 
     private void waitProcessPage(){
