@@ -1,4 +1,4 @@
-package br.com.guilhermeevangelista.selenium.pages;
+package br.com.guilhermeevangelista.selenium.test.pages;
 
 import br.com.guilhermeevangelista.selenium.core.driver.BasePage;
 import br.com.guilhermeevangelista.selenium.core.utils.enums.Users;
@@ -36,7 +36,6 @@ public class LoginPage extends BasePage {
     public void preencherSenha(String user){
         super.digitarTexto(cmpSenha, Users.valueOf(user.toUpperCase()).getSenha());
     }
-
 
     public void clicarBotaoEntrar(){
         super.tirarPrint(cmpEmail, cmpSenha, btnEntrar);

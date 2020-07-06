@@ -1,6 +1,6 @@
-package br.com.guilhermeevangelista.selenium.steps;
+package br.com.guilhermeevangelista.selenium.test.steps;
 
-import br.com.guilhermeevangelista.selenium.pages.CadastroPage;
+import br.com.guilhermeevangelista.selenium.test.pages.CadastroPage;
 import io.cucumber.java.pt.E;
 
 public class CadastroSteps {

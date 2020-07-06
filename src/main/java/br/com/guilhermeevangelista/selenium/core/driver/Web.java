@@ -12,7 +12,7 @@ public enum Web implements WebApplication {
     CHROME{
         @Override
         public WebDriver getDriver() {
-            System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "src/main/resources/propriedades/chromedriver.exe");
             Map<String, Object> prefs = new HashMap<>();
             prefs.put("profile.default_content_setting_values.notifications", 2);
             ChromeOptions options = new ChromeOptions();

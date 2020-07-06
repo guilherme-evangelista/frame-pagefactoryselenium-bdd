@@ -1,4 +1,4 @@
-package br.com.guilhermeevangelista.selenium.pages;
+package br.com.guilhermeevangelista.selenium.test.pages;
 
 import br.com.guilhermeevangelista.selenium.core.driver.BasePage;
 import org.openqa.selenium.WebElement;

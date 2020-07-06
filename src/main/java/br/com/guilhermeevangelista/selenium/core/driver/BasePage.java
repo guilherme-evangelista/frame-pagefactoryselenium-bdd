@@ -15,32 +15,34 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
+import static br.com.guilhermeevangelista.selenium.core.driver.DriverFactory.getDriver;
+
 public class BasePage {
 
     public BasePage(){
-        PageFactory.initElements(DriverFactory.getDriver(), this);
+        PageFactory.initElements(getDriver(), this);
     }
 
     private static final Logger log = Logger.getLogger(BasePage.class.getName());
     private final int timeout = Integer.parseInt(PropertiesManager.getProp("timeout"));
 
     protected void esperarElementoFicarClicavel(WebElement webElement) {
-        new WebDriverWait(DriverFactory.getDriver(), timeout)
+        new WebDriverWait(getDriver(), timeout)
                 .until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
     protected void esperarElementoFicarVisivel(WebElement webElement) {
-        new WebDriverWait(DriverFactory.getDriver(), this.timeout)
+        new WebDriverWait(getDriver(), this.timeout)
                 .until(ExpectedConditions.visibilityOf(webElement));
     }
 
     protected void esperarElementoFicarVisivel(WebElement webElement, int timeout) {
-        new WebDriverWait(DriverFactory.getDriver(), timeout)
+        new WebDriverWait(getDriver(), timeout)
                 .until(ExpectedConditions.visibilityOf(webElement));
     }
 
     protected void esperarElementoSairDaTela(WebElement webElement) {
-        new WebDriverWait(DriverFactory.getDriver(), this.timeout)
+        new WebDriverWait(getDriver(), this.timeout)
                 .until(ExpectedConditions.invisibilityOf(webElement));
     }
 
@@ -73,13 +75,13 @@ public class BasePage {
             esperarElementoFicarClicavel(elemento);
             elemento.click();
         } catch (ElementNotInteractableException e) {
-            Actions actions = new Actions(DriverFactory.getDriver());
+            Actions actions = new Actions(getDriver());
             actions.moveToElement(elemento).click().build().perform();
         } catch (WebDriverException e) {
-            JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getDriver();
+            JavascriptExecutor js = (JavascriptExecutor) getDriver();
             js.executeScript("arguments[0].click();", elemento);
         } catch (Exception e) {
-            ScenarioRepository.screenShot(DriverFactory.getDriver());
+            ScenarioRepository.screenShot(getDriver());
             log.error("Falha ao clicar no elemento :" + elemento);
         }
     }
@@ -90,10 +92,10 @@ public class BasePage {
             esperarElementoFicarVisivel(elemento);
             elemento.sendKeys(texto);
         } catch (WebDriverException e) {
-            JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getDriver();
+            JavascriptExecutor js = (JavascriptExecutor) getDriver();
             js.executeScript("arguments[0].value='"+texto+"';", elemento);
         } catch (Exception e) {
-            ScenarioRepository.screenShot(DriverFactory.getDriver());
+            ScenarioRepository.screenShot(getDriver());
             log.error("Falha ao digitar no elemento :" + elemento);
         }
     }
@@ -105,7 +107,7 @@ public class BasePage {
             esperarElementoFicarVisivel(elemento);
             valor = elemento.getText();
         } catch (Exception e) {
-            ScenarioRepository.screenShot(DriverFactory.getDriver());
+            ScenarioRepository.screenShot(getDriver());
             log.error("Falha ao clicar no elemento :" + elemento);
         }
         return valor;
@@ -113,13 +115,13 @@ public class BasePage {
 
     public void tirarPrint(){
         waitProcessPage();
-        ScenarioRepository.screenShot(DriverFactory.getDriver());
+        ScenarioRepository.screenShot(getDriver());
     }
 
     public void tirarPrint(WebElement... webElements){
         waitProcessPage();
 
-        ScenarioRepository.screenShot(DriverFactory.getDriver(), webElements);
+        ScenarioRepository.screenShot(getDriver(), webElements);
     }
 
     protected void correrListaEClicarElemento(List<WebElement> listaDeElementos, String campo) {
@@ -138,7 +140,7 @@ public class BasePage {
             esperarElementoFicarClicavel(webElement);
             valor = webElement.isDisplayed();
         } catch (Exception e) {
-            ScenarioRepository.screenShot(DriverFactory.getDriver());
+            ScenarioRepository.screenShot(getDriver());
             log.error("Falha ao clicar no elemento :" + webElement);
         }
         return valor;
@@ -148,11 +150,11 @@ public class BasePage {
         boolean valor = false;
         try {
             waitProcessPage();
-            esperarElementoFicarClicavel(DriverFactory.getDriver().findElement(By.xpath("//*[.='"+text+"']")));
-            valor = DriverFactory.getDriver().findElement(By.xpath("//*[.='"+text+"']")).isDisplayed();
+            esperarElementoFicarClicavel(getDriver().findElement(By.xpath("//*[.='"+text+"']")));
+            valor = getDriver().findElement(By.xpath("//*[.='"+text+"']")).isDisplayed();
         } catch (Exception e) {
-            ScenarioRepository.screenShot(DriverFactory.getDriver());
-            log.error("Falha ao clicar no elemento :" + DriverFactory.getDriver().findElement(By.xpath("//*[.='"+text+"']")));
+            ScenarioRepository.screenShot(getDriver());
+            log.error("Falha ao clicar no elemento :" + getDriver().findElement(By.xpath("//*[.='"+text+"']")));
         }
         return valor;
     }
@@ -160,24 +162,24 @@ public class BasePage {
     public void scrollAteOElemento(WebElement elemento){
         esperarElementoFicarVisivel(elemento);
         waitProcessPage();
-        JavascriptExecutor js = (JavascriptExecutor)DriverFactory.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("arguments[0].scrollIntoView();", elemento);
     }
 
     public void scrollAteOFimDaPagina(){
         waitProcessPage();
-        JavascriptExecutor js = (JavascriptExecutor)DriverFactory.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
     public void scrollAteOTopoDaPagina(){
         waitProcessPage();
-        JavascriptExecutor js = (JavascriptExecutor)DriverFactory.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollTo(0, document.body.scrollTop)");
     }
 
     private void waitProcessPage(){
-        WebDriverWait webDriverWait = new WebDriverWait(DriverFactory.getDriver(), timeout);
+        WebDriverWait webDriverWait = new WebDriverWait(getDriver(), timeout);
         webDriverWait.until(waitProcess());
     }
 
@@ -205,7 +207,7 @@ public class BasePage {
     }
 
     public boolean validarMensagemPopUp(String texto) {
-        System.out.println(DriverFactory.getDriver().switchTo().alert().getText());
-        return DriverFactory.getDriver().switchTo().alert().getText().contains(texto);
+        System.out.println(getDriver().switchTo().alert().getText());
+        return getDriver().switchTo().alert().getText().contains(texto);
     }
 }

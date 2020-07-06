@@ -11,14 +11,13 @@ import org.junit.runner.RunWith;
         monochrome = true,
         plugin = {"pretty", "json:target/cucumber-report/cucumber.json"},
         features = {"src/main/resources/features"},
-        glue = {"br/com/guilhermeevangelista/selenium/steps", "br/com/guilhermeevangelista/selenium/core/hooks"},
-        tags = {"@login"})
+        glue = {"br/com/guilhermeevangelista/selenium/test/steps", "br/com/guilhermeevangelista/selenium/core/hooks"},
+        tags = {"@regressivo"}
+        )
 
 public class RunTest{
-
-    @AfterClass
-    public static void gerarRelatorio(){
-        Report.gerarRelarotioClueCumber();
-    }
-
+        @AfterClass
+        public static void driverQuit(){
+                Report.gerarRelarotioClueCumber();
+        }
 }

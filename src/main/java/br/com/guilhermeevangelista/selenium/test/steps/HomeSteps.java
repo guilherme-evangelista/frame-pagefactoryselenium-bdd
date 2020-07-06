@@ -1,6 +1,6 @@
-package br.com.guilhermeevangelista.selenium.steps;
+package br.com.guilhermeevangelista.selenium.test.steps;
 
-import br.com.guilhermeevangelista.selenium.pages.HomePage;
+import br.com.guilhermeevangelista.selenium.test.pages.HomePage;
 import io.cucumber.java.pt.Então;
 import org.junit.Assert;
 

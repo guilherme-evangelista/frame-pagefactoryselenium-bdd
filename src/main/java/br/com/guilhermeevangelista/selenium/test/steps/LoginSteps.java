@@ -1,6 +1,6 @@
-package br.com.guilhermeevangelista.selenium.steps;
+package br.com.guilhermeevangelista.selenium.test.steps;
 
-import br.com.guilhermeevangelista.selenium.pages.LoginPage;
+import br.com.guilhermeevangelista.selenium.test.pages.LoginPage;
 
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;

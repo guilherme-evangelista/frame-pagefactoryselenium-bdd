@@ -44,9 +44,7 @@ public class ScenarioRepository {
         try {
             byte[] print = Screenshot.take(driver, elements);
             get().embed(print, "image/png");
-        } catch (Exception ignored) {
-        }
-
+        } catch (Exception ignored) {}
     }
 
     public static void addText(String texto) {
