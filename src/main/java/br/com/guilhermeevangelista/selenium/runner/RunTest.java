@@ -13,11 +13,11 @@ import org.junit.runner.RunWith;
         features = {"src/main/resources/features"},
         glue = {"br/com/guilhermeevangelista/selenium/test/steps", "br/com/guilhermeevangelista/selenium/core/hooks"},
         tags = {"@regressivo"}
-        )
+)
 
-public class RunTest{
-        @AfterClass
-        public static void driverQuit(){
-                Report.gerarRelarotioClueCumber();
-        }
+public class RunTest {
+    @AfterClass
+    public static void gerarRelatorio() {
+        Report.gerarRelarotioClueCumber();
+    }
 }

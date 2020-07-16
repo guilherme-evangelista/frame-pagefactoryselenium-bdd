@@ -1,5 +1,6 @@
-package br.com.guilhermeevangelista.selenium.core.driver;
+package br.com.guilhermeevangelista.selenium.core.driver.enums;
 
+import br.com.guilhermeevangelista.selenium.core.driver.interfaces.WebApplication;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -8,6 +9,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Enum que contem valores para inicializacao de diferentes browsers
+ *
+ * @author Guilherme-Evangelista
+ */
 public enum Web implements WebApplication {
     CHROME{
         @Override
@@ -24,8 +30,9 @@ public enum Web implements WebApplication {
     FIREFOX{
         @Override
         public WebDriver getDriver() {
-            System.setProperty("webdriver.firefox.driver", "drivers/geckodriver");
+            System.setProperty("webdriver.firefox.driver", "src/main/resources/propriedades/geckodriver.exe");
             return new FirefoxDriver();
         }
     }
+
 }

@@ -10,7 +10,7 @@ public class GenericSteps {
 
     @Então("valido que a mensagem {string} esta sendo exibida")
     public void validoQueAMensagemEstaSendoExibida(String mensagem) {
-        Assert.assertTrue(base.verificaTextoPresenteTela(mensagem));
+        Assert.assertTrue(base.verificaElementoPresenteTela(mensagem));
         base.tirarPrint();
     }
 }
