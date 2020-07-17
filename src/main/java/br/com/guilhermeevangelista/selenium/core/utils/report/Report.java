@@ -1,6 +1,5 @@
 package br.com.guilhermeevangelista.selenium.core.utils.report;
 
-import com.rajatthareja.reportbuilder.Color;
 import com.rajatthareja.reportbuilder.ReportBuilder;
 
 import java.io.BufferedReader;
@@ -9,16 +8,23 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Gerar report HTML
+ *
+ * @author Guilherme-Evangelista
+ */
 public class Report {
     private static final DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     private static final DateFormat dateFormatFile = new SimpleDateFormat("ddMMyyyy");
     private static final Date date = new Date();
 
+    /**
+     * Gerar report com o ReportBuilder
+     */
     public static void gerarRelatorioReportBuilder(){
         ReportBuilder reportBuilder = new ReportBuilder();
 
@@ -40,6 +46,9 @@ public class Report {
         reportBuilder.build(cucumberJsonReports);
     }
 
+    /**
+     * Gerar report com o plugin ClueCumber baseado no custom.css acima
+     */
     public static void gerarRelarotioClueCumber(){
         try {
             Process process = Runtime.getRuntime().exec(

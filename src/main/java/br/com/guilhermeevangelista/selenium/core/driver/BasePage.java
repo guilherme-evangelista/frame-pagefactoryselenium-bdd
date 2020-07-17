@@ -43,7 +43,7 @@ public class BasePage {
             JavascriptExecutor js = (JavascriptExecutor) getDriver();
             js.executeScript("arguments[0].value='"+texto+"';", elemento);
         } catch (Exception e) {
-            ScenarioRepository.screenShot(getDriver());
+            ScenarioRepository.screenShot();
             log.error("Falha ao digitar no elemento :" + elemento);
         }
     }
@@ -68,7 +68,7 @@ public class BasePage {
             JavascriptExecutor js = (JavascriptExecutor) getDriver();
             js.executeScript("arguments[0].click();", elemento);
         } catch (Exception e) {
-            ScenarioRepository.screenShot(getDriver());
+            ScenarioRepository.screenShot();
             log.error("Falha ao clicar no elemento :" + elemento);
         }
     }
@@ -86,7 +86,7 @@ public class BasePage {
             esperarElementoFicarVisivel(elemento);
             valor = elemento.getText();
         } catch (Exception e) {
-            ScenarioRepository.screenShot(getDriver());
+            ScenarioRepository.screenShot();
             log.error("Falha ao clicar no elemento :" + elemento);
         }
         return valor;
@@ -103,7 +103,7 @@ public class BasePage {
             try {
                 waitProcessPage();
                 esperarElementoFicarClicavel(elemento);
-                elemento.click();
+                clicarElemento(elemento);
                 return;
             } catch (Exception ignored) {}
             tentativas++;
@@ -147,7 +147,7 @@ public class BasePage {
      */
     public void tirarPrint(){
         waitProcessPage();
-        ScenarioRepository.screenShot(getDriver());
+        ScenarioRepository.screenShot();
     }
 
     /**
@@ -156,7 +156,7 @@ public class BasePage {
      */
     public void tirarPrint(WebElement... elementos){
         waitProcessPage();
-        ScenarioRepository.screenShot(getDriver(), elementos);
+        ScenarioRepository.screenShot(elementos);
     }
 
     /**
@@ -185,7 +185,7 @@ public class BasePage {
             esperarElementoFicarClicavel(elemento);
             valor = elemento.isDisplayed();
         } catch (Exception e) {
-            ScenarioRepository.screenShot(getDriver());
+            ScenarioRepository.screenShot();
             log.error("Falha ao tentar encontrar o elemento: " + elemento);
         }
         return valor;
@@ -203,7 +203,7 @@ public class BasePage {
             esperarElementoFicarClicavel(getDriver().findElement(By.xpath("//*[.='"+texto+"']")));
             valor = getDriver().findElement(By.xpath("//*[.='"+texto+"']")).isDisplayed();
         } catch (Exception e) {
-            ScenarioRepository.screenShot(getDriver());
+            ScenarioRepository.screenShot();
             log.error("Falha ao tentar encontrar o elemento: " + getDriver().findElement(By.xpath("//*[.='"+texto+"']")));
         }
         return valor;
@@ -220,7 +220,7 @@ public class BasePage {
             JavascriptExecutor js = (JavascriptExecutor) getDriver();
             js.executeScript("arguments[0].scrollIntoView();", elemento);
         }catch (Exception e){
-            ScenarioRepository.screenShot(getDriver());
+            ScenarioRepository.screenShot();
             log.error("Falha ao tentar encontrar o elemento: " + elemento);
         }
 

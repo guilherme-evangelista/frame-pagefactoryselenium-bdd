@@ -1,5 +1,6 @@
-package br.com.guilhermeevangelista.selenium.core.utils.date;
+package br.com.guilhermeevangelista.selenium.core.utils;
 
+import br.com.guilhermeevangelista.selenium.core.utils.enums.DateFormatUtils;
 import org.junit.Test;
 
 import java.text.DateFormat;
@@ -11,7 +12,7 @@ import java.util.TimeZone;
 
 public class DateGetUtils {
 
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
     public static String getDate(DateFormatUtils pattern, boolean isUTC){
         TimeZone tz = TimeZone.getTimeZone(isUTC? ZoneId.of("UTC") : ZoneId.systemDefault());

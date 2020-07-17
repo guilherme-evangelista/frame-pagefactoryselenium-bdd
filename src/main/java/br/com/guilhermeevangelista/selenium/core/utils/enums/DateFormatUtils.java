@@ -1,4 +1,4 @@
-package br.com.guilhermeevangelista.selenium.core.utils.date;
+package br.com.guilhermeevangelista.selenium.core.utils.enums;
 
 public enum DateFormatUtils {
     DD_MM_YYYY("dd-MM-yyyy"),

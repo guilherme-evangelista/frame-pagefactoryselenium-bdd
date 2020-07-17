@@ -57,6 +57,7 @@ public class DriverFactory {
      */
     public static void closeDriver(){
         driver.close();
+        driver = null;
     }
 
     /**

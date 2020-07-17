@@ -10,18 +10,18 @@ import org.junit.AfterClass;
 public class Hooks{
 
     @Before
-    public void initializeTest(Scenario scenario){
+    public void inicializarTest(Scenario scenario){
         ScenarioRepository.add(scenario);
     }
 
     @After
-    public void onlyClose(){
+    public void apenasFechar(){
         DriverFactory.closeDriver();
         ScenarioRepository.remove();
     }
 
     @AfterClass
-    public static void driverQuit(){
+    public static void matarTarefa(){
         DriverFactory.killDriver();
     }
 
