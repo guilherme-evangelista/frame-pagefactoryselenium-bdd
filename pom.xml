@@ -53,8 +53,9 @@
         <log4j.version>1.2.17</log4j.version>
         <reportbuilder.version>1.0.3</reportbuilder.version>
         <gherkin.version>13.0.0</gherkin.version>
+        <maven.version>3.8.1</maven.version>
         <junit.version>5.7.0-M1</junit.version>
-        <cluecumber.version>2.5.0</cluecumber.version>
+        <cluecumber.version>2.7.0</cluecumber.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -121,6 +122,14 @@
             <artifactId>gherkin</artifactId>
             <version>${gherkin.version}</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>${maven.version}</version>
+        </dependency>
+
 
     </dependencies>
 

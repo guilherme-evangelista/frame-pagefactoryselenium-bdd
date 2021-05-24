@@ -1,7 +1,7 @@
 package br.com.guilhermeevangelista.selenium.core.driver;
 
 import br.com.guilhermeevangelista.selenium.core.utils.report.screenshot.ScenarioRepository;
-import org.apache.log4j.Logger;
+import freemarker.log.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
