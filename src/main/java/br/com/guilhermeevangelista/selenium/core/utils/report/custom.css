@@ -1,5 +1,5 @@
 .navbar, .footer, .card-header {
-    background-color: #ec7000 !important;
+    background-color: rgb(255, 122, 0) !important;
     color: white;
 }
 
@@ -11,11 +11,11 @@
 
 @media (min-width: 1025px){
     .navbar-nav {
-        background-image: url(https://logodownload.org/wp-content/uploads/2014/05/itau-logo-1.png);
+        background-image: url(https://logodownload.org/wp-content/uploads/2014/07/rede-logo-13.png);
         background-repeat: no-repeat;
         background-size: auto 100%;
         background-position: center left;
-        padding-left: 50px;
+        padding-left: 150px;
     }
     ul {
       position: sticky;
@@ -28,5 +28,5 @@
 }
 
 .footer div:after {
-  content: 'Todos os direitos reservados. Copyright 2020 Itau Unibanco. Time QA';
+  content: 'Todos os direitos reservados. © 2021 Redecard S.A. Time QA';
 }

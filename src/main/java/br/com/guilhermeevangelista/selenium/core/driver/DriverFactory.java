@@ -45,8 +45,13 @@ public class DriverFactory {
      */
     private static void createDriver() {
         if (driver != null) driver.close();
-        driver = ((WebApplication) Web.CHROME).getDriver();
-        driver.manage().window().fullscreen();
+        driver = Web.CHROME.getDriver();
+
+        if (System.getProperty("os.name").toLowerCase().contains("win")) {
+            driver.manage().window().maximize();
+        }else if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+            driver.manage().window().fullscreen();
+        }
         wait = new WebDriverWait(driver, 10);
         driver.get(PropertiesManager.getProp("urlAPP"));
     }
