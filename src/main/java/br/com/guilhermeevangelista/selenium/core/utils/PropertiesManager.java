@@ -7,19 +7,22 @@ import java.util.Properties;
 
 public class PropertiesManager {
 
-    static Properties prop = new Properties();
-    static File file = new File("src/main/resources");
+    private Properties prop = new Properties();
+    private File file = new File("src/main/resources");
 
-    public static String getProp(String valor) {
+    public PropertiesManager(String fileProperty) {
         try {
             if (System.getProperty("env") == null) {
-                prop.load(new FileInputStream( file.getAbsolutePath() + "/propriedades/config.properties"));
+                prop.load(new FileInputStream( file.getAbsolutePath() + "/propriedades/"+fileProperty+".properties"));
             } else {
                 prop.load(new FileInputStream(file.getCanonicalPath() + "/" + System.getProperty("env")));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getProp(String valor) {
         return prop.getProperty(valor);
     }
 }

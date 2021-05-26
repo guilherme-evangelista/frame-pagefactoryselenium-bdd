@@ -156,6 +156,7 @@ public class BasePage {
      */
     public void tirarPrint(WebElement... elementos){
         waitProcessPage();
+        esperarElementoFicarVisivel(elementos);
         ScenarioRepository.screenShot(elementos);
     }
 
@@ -287,7 +288,7 @@ public class BasePage {
     /**
      * Esperar elemento ficar visivel
      */
-    private void esperarElementoFicarVisivel(WebElement webElement) {
-        getDriverWait().until(ExpectedConditions.visibilityOf(webElement));
+    private void esperarElementoFicarVisivel(WebElement ... webElement) {
+        getDriverWait().until(ExpectedConditions.visibilityOfAllElements(webElement));
     }
 }

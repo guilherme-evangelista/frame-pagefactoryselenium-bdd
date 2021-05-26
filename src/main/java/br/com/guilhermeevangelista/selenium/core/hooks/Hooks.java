@@ -11,6 +11,7 @@ public class Hooks{
 
     @Before
     public void inicializarTest(Scenario scenario){
+        DriverFactory.getDriver();
         ScenarioRepository.add(scenario);
     }
 

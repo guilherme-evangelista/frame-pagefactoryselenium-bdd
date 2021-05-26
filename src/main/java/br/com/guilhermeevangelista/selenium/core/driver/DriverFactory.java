@@ -1,8 +1,8 @@
 package br.com.guilhermeevangelista.selenium.core.driver;
 
 import br.com.guilhermeevangelista.selenium.core.driver.enums.Web;
-import br.com.guilhermeevangelista.selenium.core.driver.interfaces.WebApplication;
 import br.com.guilhermeevangelista.selenium.core.utils.PropertiesManager;
+import br.com.guilhermeevangelista.selenium.core.utils.variaveis.VariaveisEstaticasSalesForce;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -44,7 +44,7 @@ public class DriverFactory {
      * Criar driver com o design pattern singleton
      */
     private static void createDriver() {
-        if (driver != null) driver.close();
+        if (driver != null) driver.quit();
         driver = Web.CHROME.getDriver();
 
         if (System.getProperty("os.name").toLowerCase().contains("win")) {
@@ -53,14 +53,15 @@ public class DriverFactory {
             driver.manage().window().fullscreen();
         }
         wait = new WebDriverWait(driver, 10);
-        driver.get(PropertiesManager.getProp("urlAPP"));
+        PropertiesManager propertiesManager = new PropertiesManager("config");
+        driver.get(propertiesManager.getProp("url"+ VariaveisEstaticasSalesForce.ambiente));
     }
 
     /**
      * Fecha e navegador
      */
     public static void closeDriver(){
-        driver.close();
+        driver.quit();
         driver = null;
     }
 

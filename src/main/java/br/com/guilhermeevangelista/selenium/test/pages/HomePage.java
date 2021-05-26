@@ -8,11 +8,11 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[.='Home']")
     private WebElement btnHome;
 
-    @FindBy(xpath = "//a[.='Home' and parent::li[@class='active']]")
-    private WebElement btnHomeAtivo;
+    @FindBy(xpath = "//input[@ placeholder ='Search Salesforce']")
+    private WebElement cmpPesquisar;
 
     public boolean validarTelaHomeAtiva(){
-        super.tirarPrint(btnHomeAtivo);
-        return super.verificaElementoPresenteTela(btnHomeAtivo);
+        super.tirarPrint(cmpPesquisar);
+        return super.verificaElementoPresenteTela(cmpPesquisar);
     }
 }

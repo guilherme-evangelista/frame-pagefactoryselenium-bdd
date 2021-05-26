@@ -1,6 +1,6 @@
 package br.com.guilhermeevangelista.selenium.test.steps;
 
-import br.com.guilhermeevangelista.selenium.test.pages.LoginPage;
+import br.com.guilhermeevangelista.selenium.test.pages.LoginSFPage;
 
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
@@ -10,7 +10,7 @@ import org.junit.Assert;
 
 public class LoginSteps {
 
-    protected LoginPage loginPage = new LoginPage();
+    protected LoginSFPage loginPage = new LoginSFPage();
 
     @Dado("que eu acesso o site")
     public void queEuAcessoOSite() {
@@ -19,7 +19,7 @@ public class LoginSteps {
 
     @Quando("clico em novo usuario")
     public void clicoEmNovoUsuario() {
-        loginPage.clicarBotaoNovoUsuario();
+
     }
 
     @Quando("realizo login com o usuario {string}")
