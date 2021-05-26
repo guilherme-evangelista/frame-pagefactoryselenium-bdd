@@ -8,24 +8,40 @@
     <artifactId>frame-pagefactoryselenium-bdd</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <cucumber.version>5.7.0</cucumber.version>
+        <selenium.version>3.141.59</selenium.version>
+        <fakker.version>1.0.2</fakker.version>
+        <log4j.version>1.2.17</log4j.version>
+        <reportbuilder.version>1.0.3</reportbuilder.version>
+        <gherkin.version>13.0.0</gherkin.version>
+        <maven.version>3.8.1</maven.version>
+        <junit.version>5.7.0-M1</junit.version>
+        <cluecumber.version>2.7.0</cluecumber.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <build>
-<!--        <testSourceDirectory>src</testSourceDirectory>-->
+        <testSourceDirectory>src</testSourceDirectory>
         <plugins>
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <version>2.18.1</version>-->
-<!--                <configuration>-->
-<!--                    <includes>-->
-<!--                        <include>br/com/guilhermeevangelista/selenium/runner/RunTest.java</include>-->
-<!--                    </includes>-->
-<!--                    <parallel>all</parallel>-->
-<!--                    <threadCount>2</threadCount>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+                <configuration>
+                    <includes>
+                        <include>br/com/guilhermeevangelista/selenium/runner/RunParallelTest.java</include>
+                    </includes>
+                    <parallel>all</parallel>
+                    <threadCount>4</threadCount>
+                    <perCoreThreadCount>false</perCoreThreadCount>
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>
@@ -50,8 +66,8 @@
                     <sourceJsonReportDirectory>${project.build.directory}/cucumber-report</sourceJsonReportDirectory>
                     <generatedHtmlReportDirectory>${project.build.directory}/generated-report</generatedHtmlReportDirectory>
                     <customParameters>
-                        <FrameWork>Selenium Web Bdd</FrameWork>
-                        <Url_do_site_testado>http://seubarriga.wcaquino.me</Url_do_site_testado>
+                        <FrameWork>FrameWork Rede 2021</FrameWork>
+                        <Url_do_site_testado>https://test.salesforce.com/</Url_do_site_testado>
                         <!--                        <_Text>This is a long text that is displayed without the key. This can be used to display longer texts in the report!</_Text>-->
                     </customParameters>
                 </configuration>
@@ -59,18 +75,6 @@
         </plugins>
     </build>
 
-    <properties>
-        <cucumber.version>5.7.0</cucumber.version>
-        <selenium.version>3.141.59</selenium.version>
-        <fakker.version>1.0.2</fakker.version>
-        <log4j.version>1.2.17</log4j.version>
-        <reportbuilder.version>1.0.3</reportbuilder.version>
-        <gherkin.version>13.0.0</gherkin.version>
-        <maven.version>3.8.1</maven.version>
-        <junit.version>5.7.0-M1</junit.version>
-        <cluecumber.version>2.7.0</cluecumber.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -143,6 +147,16 @@
             <version>${maven.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.9.8</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>6.10.4</version>
+        </dependency>
 
     </dependencies>
 

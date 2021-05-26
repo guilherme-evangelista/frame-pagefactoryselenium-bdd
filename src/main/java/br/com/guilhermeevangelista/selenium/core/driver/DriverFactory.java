@@ -13,7 +13,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class DriverFactory {
 
-    protected static WebDriver driver;
+    private static final ThreadLocal<WebDriver> threadDriver = new ThreadLocal<WebDriver>() {
+        @Override
+        protected synchronized WebDriver initialValue() {
+            return initDriver();
+        }
+    };
+
     protected static WebDriverWait wait;
 
     /**
@@ -22,10 +28,7 @@ public class DriverFactory {
      * @return retorna o WebDriver
      */
     public static WebDriver getDriver() {
-        if (driver == null) {
-            createDriver();
-        }
-        return driver;
+        return threadDriver.get();
     }
 
     /**
@@ -34,43 +37,46 @@ public class DriverFactory {
      * @return retorna o WebDriverWait
      */
     public static WebDriverWait getDriverWait() {
-        if (driver == null) {
-            createDriver();
-        }
         return wait;
     }
 
     /**
      * Criar driver com o design pattern singleton
      */
-    private static void createDriver() {
-        if (driver != null) driver.quit();
-        driver = Web.CHROME.getDriver();
+    private static WebDriver initDriver() {
+        WebDriver driver = Web.CHROME.getDriver();
 
         if (System.getProperty("os.name").toLowerCase().contains("win")) {
             driver.manage().window().maximize();
-        }else if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+        } else if (System.getProperty("os.name").toLowerCase().contains("mac")) {
             driver.manage().window().fullscreen();
         }
         wait = new WebDriverWait(driver, 10);
         PropertiesManager propertiesManager = new PropertiesManager("config");
-        driver.get(propertiesManager.getProp("url"+ VariaveisEstaticasSalesForce.ambiente));
+        driver.get(propertiesManager.getProp("url" + VariaveisEstaticasSalesForce.ambiente));
+        return driver;
     }
 
     /**
      * Fecha e navegador
      */
-    public static void closeDriver(){
-        driver.quit();
-        driver = null;
+    public static void closeDriver() {
+        WebDriver driver = getDriver();
+        if(driver != null) {
+            driver.quit();
+        }
+        threadDriver.remove();
     }
 
     /**
      * Mata tarefa do Driver
      */
     public static void killDriver() {
-        driver.quit();
-        driver = null;
+        WebDriver driver = getDriver();
+        if(driver != null) {
+            driver.quit();
+        }
+        threadDriver.remove();
     }
 
 }
