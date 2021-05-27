@@ -1,6 +1,6 @@
 package br.com.guilhermeevangelista.selenium.core.utils.report.screenshot;
 
-import io.cucumber.java.Scenario;
+import cucumber.api.Scenario;
 import org.openqa.selenium.WebElement;
 
 import java.util.HashMap;
@@ -62,6 +62,6 @@ public class ScenarioRepository {
      */
     public static void addText(String texto) {
         if (texto != null)
-            get().log(texto);
+            get().write(texto);
     }
 }

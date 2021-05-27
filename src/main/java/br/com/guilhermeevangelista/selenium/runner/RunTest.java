@@ -1,8 +1,8 @@
 package br.com.guilhermeevangelista.selenium.runner;
 
 import br.com.guilhermeevangelista.selenium.core.utils.report.Report;
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 
